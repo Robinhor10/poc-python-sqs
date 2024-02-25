@@ -52,16 +52,29 @@ Isso iniciará tanto a aplicação Flask quanto o LocalStack em contêineres Doc
 
 ## Testando a API via Insomnia
 
+
 Para testar a API usando o Insomnia, siga estes passos:
 
 1. **Instale e Abra o Insomnia**: Se ainda não o fez, baixe e instale o Insomnia a partir do [site oficial](https://insomnia.rest/download).
 
-2. **Crie um Novo Request**:
+### Opção 1 ###
+# * Importando a collection *
+
+1. Faça o download do arquivo `Insomnia_poc-sqs` que se encontra na estrutura de pastas \poc-python-sqs\tests\collection
+2. Abra a ferramenta Insomnia
+3. No menu superior clique em `Application`
+4. Depois clique em `Preferences`, no menu cliquem em `Data`
+5. E por fim clique em `Import`, e escolha o arquivo baixado na etapa um deste processo
+
+### Opção 2 ###
+# * Configurando manualmente no Insomnia *
+
+1. **Crie um Novo Request**:
    - Abra o Insomnia e crie um novo Request clicando no botão "New Request".
    - Nomeie o Request como "Enviar Mensagem SQS" e selecione o método `POST`.
    - Clique em "Create".
 
-3. **Configure o Request**:
+2. **Configure o Request**:
    - Na barra de URL, insira `http://localhost:5000/send`.
    - Vá para a aba "Body", selecione "JSON" e insira o seguinte JSON no corpo do request:
 
@@ -71,16 +84,16 @@ Para testar a API usando o Insomnia, siga estes passos:
 }
 ```
 
-4. **Envie o Request**:
+3. **Envie o Request**:
    - Clique no botão "Send" para enviar o request.
    - Se tudo estiver configurado corretamente, você receberá uma resposta indicando que a mensagem foi enviada com sucesso para a fila SQS.
 
 Repita estes passos sempre que quiser testar o envio de mensagens para a fila SQS através da sua API.
 
 ---
-4. **Verificando se a mensagem foi criada**:
+5. **Verificando se a mensagem foi criada**:
 
-- Abra um terminal e execute o seguinte comando para acessar o shell do contêiner do LocalStack:
+1. Abra um terminal e execute o seguinte comando para acessar o shell do contêiner do LocalStack:
 
 ```bash
 docker exec -it <nome_do_container_localstack> /bin/bash
