@@ -33,10 +33,11 @@ Se preferir criar a fila SQS manualmente em vez de usar o script `init.sh`, siga
 docker exec -it <nome_do_container_localstack> /bin/bash
 ```
 
-2. Dentro do contêiner, use o `awslocal` para criar a fila SQS:
+2. Dentro do contêiner, use o `awslocal` para criar a fila SQS com tempo de retenção das mensagens (86400segs = 24h):
 
 ```bash
-awslocal sqs create-queue --queue-name my-queue
+awslocal sqs create-queue --queue-name my-queue --attributes MessageRetentionPeriod=86400
+
 ```
 
 ### Executar o Projeto
