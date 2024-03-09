@@ -29,7 +29,7 @@ const tables = [
     },
 ];
 
-async function createTable(table) {
+async function createTable(tables) {
     try {
         const result = await dynamoDB.createTable(table).promise();
         console.log('Tabela criada:  ${result.TableDescription.TableName}' );
