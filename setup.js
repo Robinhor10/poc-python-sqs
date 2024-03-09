@@ -27,6 +27,44 @@ const tables = [
             WriteCapacityUnits: 1
         }
     },
+    {
+        TableName :  "Payments",
+        KeySchema : [
+            {
+                AttributeName: "paymentid",
+                KeyType: "HASH",
+            }
+        ],
+        AttributeDefinitions: [
+            {
+                AttributeName: "paymentid",
+                AttributeType: "S",
+            }
+        ],
+        ProvisionedThroughput: {
+            ReadCapacityUnits: 1,
+            WriteCapacityUnits: 1
+        }
+    },
+    {
+        TableName :  "Notifications",
+        KeySchema : [
+            {
+                AttributeName: "notificationid",
+                KeyType: "HASH",
+            }
+        ],
+        AttributeDefinitions: [
+            {
+                AttributeName: "notificationid",
+                AttributeType: "S",
+            }
+        ],
+        ProvisionedThroughput: {
+            ReadCapacityUnits: 1,
+            WriteCapacityUnits: 1
+        }
+    },    
 ];
 
 async function createTable(tables) {
